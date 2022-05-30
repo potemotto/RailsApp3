@@ -1,0 +1,46 @@
+<p id="notice"></p>
+<div class="container px-5 px-sm-0">
+
+　　<%= render 'users/showA', user: @user, book: @book %>
+　　</div>
+    <div class="col-md-8 offset-md-1">
+  <h1>Book detail</h1>
+　<table class="table table-hover table-inverse">
+　<tbody>
+
+  <tr>
+  <td>
+   <%= link_to user_path(@user) do %>
+   <%= image_tag @spbook.user.get_profile_image(100,100) %>
+   <% end %>
+   <br>
+   <%= link_to @spbook.user.name, user_path(@user) %>
+  </td>
+
+  <td>
+   <%= @spbook.title %>
+  </td>
+
+  <td>
+   <%= @spbook.body %>
+  </td>
+
+   <% if @spbook.user == current_user %>
+   <td>
+   <%= link_to "Edit",  edit_book_path(@spbook.id) , class: " btn btn-sm btn-success text-light" %>
+   </td>
+   <% end %>
+
+   <% if @spbook.user == current_user %>
+   <td>
+   <%= link_to "Destroy", book_path(@spbook.id), method: :delete, class: " btn btn-sm btn-danger text-light" , "data-confirm" => "本当に削除しますか？" %>
+   </td>
+   <% end %>
+
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>

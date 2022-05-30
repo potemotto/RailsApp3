@@ -1,0 +1,39 @@
+ <%# 切り取り部分 %>
+ <div class="row">
+ <div class="col-md-3">
+ <table class="table">
+ <h2>User info</h2>
+ <tbody>
+  <th><%= image_tag user.get_profile_image(100,100) %></th>
+  <tr>
+    <th>name </th>
+    <th><%= user.name %></th>
+    <th colspan="2"></th>
+  </tr>
+  <th>introduction</th><th><%= user.introduction %></th>
+ </tbody>
+ </table>
+
+<div class="row">
+   <%= link_to  edit_user_path(user.id) ,class: "btn btn-outline-secondary btn-block" do %>
+   <i class="fas fa-user-cog"></i>
+   <% end %>
+  </div>
+
+<from>
+<h2 class="mt-3">New book</h2>
+<%= form_with model: book do |f| %>
+ <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control title" %>
+  </div>
+
+  <div class="form-group">
+        <%= f.label :opinion %>
+        <%= f.text_area :body, class: "form-control body" %>
+    </div>
+    <p> <%= f.submit ' Create Book ' , class: "btn btn-success" %></p>
+
+<% end %>
+</from>
+<%# ここまでコピー %>
